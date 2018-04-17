@@ -6,7 +6,7 @@
 
 ## Kubernetes ##
 
-首先，什么是 [Kubernetes](https://kubernetes.io/) Kubernetes(https://kubernetes.io/)? [Kubernetes](https://kubernetes.io/) Kubernetes(https://kubernetes.io/) 是一个开源的，管理容器的框架。与平台无关，就是说着你可以在你本机上，在 AWS 或者 Google Cloud，任何其他的平台运行它。（Kubernetes）能让你通过使用声明的配置内容，控制一组容器，和容器的网络规则。
+首先，什么是 [Kubernetes](https://kubernetes.io/) ? [Kubernetes](https://kubernetes.io/) 是一个开源的，管理容器的框架。与平台无关，就是说着你可以在你本机上，在 AWS 或者 Google Cloud，任何其他的平台运行它。（Kubernetes）能让你通过使用声明的配置内容，控制一组容器，和容器的网络规则。
 
 你只需要写个 yaml/json 文件，描述下需要在哪运行哪个容器。定义你的网络规则，比如端口转发。它就会帮你管理服务发现。
 
@@ -72,7 +72,7 @@ $ kubectl get pods
 
 然后我需要部署服务了，vessel 服务，user 服务，consignment 服务和 email 服务。好了，很简单！
 
-从 Mongodb 实例开始吧。以为它不属于一个单独的服务，而且这是的平台整体的一部分，我们把这些部署放在 shippy-infrastructure 仓库下。这个仓库我提交到了 Github ，因为包含了很多敏感数据，但是我可以给你们所有的部署文件。
+从 Mongodb 实例开始吧。因为它不属于一个单独的服务，而且这是的平台整体的一部分，我们把这些部署放在 shippy-infrastructure 仓库下。这个仓库我提交到了 Github ，因为包含了很多敏感数据，但是我可以给你们所有的部署文件。
 
 首先，我们需要一个配置创建一个 ssd，用于长期存储。这样当我们重启容器的时候就不会丢失数据。
 
@@ -260,7 +260,7 @@ func main() {
 
 ```
 
-我们在这做的所有事情，就是使用了 import 的新库 `k8s.NewService` 覆盖了已有的 `micro.NewService()`。那么新的数据库和什么呢？
+我们在这做的所有事情，就是使用了 import 的新库 `k8s.NewService` 覆盖了已有的 `micro.NewService()`。那么新的数据库是什么呢？
 
 ## Kubernetes 中的微服务 ##
 
@@ -269,7 +269,7 @@ func main() {
 
 实际情况是，所有的库实际上都是 micro，配置了 Kuberntes 的一些合理的默认值，和一个直接集成在 Kubernetes 服务之上的 service selector。也就是说它把服务发现交给了 Kubernetes。默认用 gRPC 作为默认 transport 。 当然你也可以使用环境变量和 plugin 来覆盖这些状态。
 
-在 Micro 的世界里还有很多让人着迷的功能，这也是让我很兴奋的地方。一定要参加 [slack channel](http://slack.micro.mu/)。
+在 Micro 的世界里还有很多让人着迷的功能，这也是让我很兴奋的地方。一定要加入 [slack channel](http://slack.micro.mu/)。
 
 现在我们在服务上创建一个部署服务，在这我们要稍微了解下关于每个部分作用的细节。
 
